@@ -1,0 +1,6 @@
+06/11/2024
+Just setup simple pipeline for image feature extraction
+Havn't started into sfm yet
+Thinking that we'll just assume were going to have all the images first then can do bundle adjustment and scaling whatever
+Future outlook can be into stuff where its constant and doesn't know it's Future
+Remember this doesn't have to be built in a day, theres no time limit
