@@ -42,6 +42,7 @@ class FeatureExtractor:
         F, mask = cv2.findFundamentalMat(points1, points2, cv2.FM_RANSAC, self.match_thresh)
         mask = mask.ravel() == 1
         return mask
+    
     def dy_threshold(self, points1, points2):
         dy = points1[:, 1] - points2[:, 1]
         mask = np.abs(dy) < self.dy_thresh
@@ -59,3 +60,8 @@ class FeatureExtractor:
         points2_inliers = points2[combined_mask]
         
         return filtered_matches, points1_inliers, points2_inliers
+    
+    def draw_matches(self, img1, kp1, img2, kp2, matches):
+        matched_img = cv2.drawMatches(img1, kp1, img2, kp2, matches, None,
+                                      flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
+        return matched_img
